@@ -1,0 +1,24 @@
+{% extends '@ColorAdmin/login.html.twig' %}
+
+{% block title %}<b>Login</b>{% endblock %}
+{% block subtitle %}{% endblock %}
+{% block login_logo %}
+    <i class="fad fa-sign-in"></i>
+{% endblock %}
+
+{% block login_form %}
+    <form action="{{ url('login_check') }}" method="POST" class="margin-bottom-0">
+        {{ form_rest(form) }}
+        <div class="login-buttons">
+            <button type="submit" class="btn btn-success btn-block btn-lg">Sign in <i class="fa fa-sign-in"></i>
+            </button>
+        </div>
+        <div class="m-t-15">
+            <p>
+                <a href="{{ url('forgot_password') }}"><i class="fa fa-question"></i> Forgot Password</a>
+            </p>
+        </div>
+    </form>
+{% endblock %}
+
+{% block pagetitle %}Login{% endblock %}

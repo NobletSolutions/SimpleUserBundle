@@ -1,0 +1,21 @@
+{
+  "name": "ns/simple-user-bundle",
+  "description": "Basic pre-configured user admin and auth bundle for NSAdminBundle",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "homepage": "https://github.com/NobletSolutions/SimpleUserBundle",
+  "authors": [
+    {
+      "name": "Mark Woynarski",
+      "email": "mark.woynarski@nobletdesign.co"
+    }
+  ],
+  "require": {
+    "ns/admin-bundle": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "NS\\SimpleUserBundle\\": "src/"
+    }
+  }
+}

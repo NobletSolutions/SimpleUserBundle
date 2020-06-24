@@ -1,0 +1,15 @@
+{% extends 'Login/login.html.twig' %}
+{% block login_form %}
+    <form action="{% block check_url %}{{ url('forgotPassword') }}{% endblock %}" method="POST" class="margin-bottom-0">
+        <h4 class="text-white">Reset Password</h4>
+        <div class="form-group m-b-20">
+            <input type="text" class="form-control input-lg" placeholder="Email Address" name="_username" />
+        </div>
+        <div class="login-buttons">
+            <button type="submit" class="btn btn-success btn-block btn-lg">Reset my password</button>
+        </div>
+        <div class="form-group m-t-20">
+            <p>A password reset link will be emailed to you.</p>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends '@NSAdmin/list.html.twig' %}
+
+{% block model_create_icon %}user-plus{% endblock %}
+
+{% block list_column_headers %}
+    <th></th>
+    <th>Name</th>
+    <th>Email</th>
+{% endblock %}
+
+{% block list_row %}
+    <td>{% if item.hasRole('ROLE_SUPER_ADMIN') %}<i class="fa fa-user-cog text-danger" title="System Administrator"></i>{% endif %}</td>
+    <td>{{ item.name }}</td>
+    <td>{{ item.email }}</td>
+{% endblock %}
+
+{% block delete_button %}
+    {% if is_granted('ROLE_SUPER_ADMIN') and item.id != app.user.id %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block edit_button %}
+    {% if is_granted('ROLE_SUPER_ADMIN') or item.id == app.user.id %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block create_button %}
+    {% if is_granted('ROLE_SUPER_ADMIN') %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block extra_actions %}
+    {% if is_granted('ROLE_SUPER_ADMIN') or item.id == app.user.id %}
+        <a class="btn btn-sm btn-success ns-confirm" data-confirm-message="This will send the user a welcome email with a link to set their password.  Continue?" data-confirm-type="success"
+           href="{{ path('admin_password_reset', {'id':item.id}) }}"><i class="fa fa-door-open"></i> Send Welcome Email</a>
+    {% endif %}
+{% endblock %}

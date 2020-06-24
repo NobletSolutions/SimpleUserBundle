@@ -1,0 +1,49 @@
+login_check:
+    path:   /login_check
+
+login:
+    path:     /login
+    controller: NS\SimpleUserBundle\Controller\LoginController::loginAction
+
+logout:
+    path:   /logout
+
+forgot_password:
+    path:     /forgot_password
+    controller: NS\SimpleUserBundle\Controller\LoginController::forgotAction
+
+forgot_password_success:
+    path:     /forgot_success
+    controller: NS\SimpleUserBundle\Controller\LoginController::forgotSuccessAction
+
+change_password:
+    path:     /change_password
+    controller: NS\SimpleUserBundle\Controller\UserController::changePasswordAction
+
+reset_password:
+    path: /reset-password
+    controller: NS\SimpleUserBundle\Controller\UserController::resetPasswordAction
+
+admin_user_index:
+    path: /admin/admin_user
+    controller: NS\SimpleUserBundle\Controller\UserAdminController::indexAction
+
+admin_user_list:
+    path: /admin/admin_user/list
+    controller: NS\SimpleUserBundle\Controller\UserAdminController::listAction
+
+admin_user_edit:
+    path: /admin/admin_user/edit/{id}
+    controller: NS\SimpleUserBundle\Controller\UserAdminController::editAction
+
+admin_user_delete:
+    path: /admin/admin_user/delete/{id}
+    controller: NS\SimpleUserBundle\Controller\UserAdminController::deleteAction
+
+admin_user_create:
+    path: /admin/admin_user/create
+    controller: NS\SimpleUserBundle\Controller\UserAdminController::createAction
+
+admin_password_reset:
+    path: /admin_user/resetPassword/{id}
+    controller: NS\SimpleUserBundle\Controller\UserAdminController::sendPasswordResetAction

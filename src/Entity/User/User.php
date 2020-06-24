@@ -1,0 +1,246 @@
+<?php
+
+
+namespace NS\SimpleUserBundle\Entity\User;
+
+use NS\AdminBundle\Entity\AdminSoftDeletableEntity;
+use \Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Class User
+ *
+ * Class User
+ * @ORM\Entity(repositoryClass="NS\SimpleUserBundle\Repository\UserRepository")
+ * @ORM\Table(name="ns_user", uniqueConstraints={@ORM\UniqueConstraint(name="user_idx", columns={"email"})})
+ */
+class User extends AdminSoftDeletableEntity
+{
+    /**
+     * @var string
+     * @ORM\Column(type="string")
+     */
+    protected $name;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string")
+     */
+    protected $email;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $password;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $salt;
+
+    /**
+     * @var string
+     */
+    protected $plainPassword;
+
+    /**
+     * @var \DateTime
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $registeredOn;
+
+    /**
+     * @var \DateTime
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $lastLogin;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $resetToken;
+
+    /**
+     * @var array
+     * @ORM\Column(type="array", nullable=true)
+     */
+    protected $roles;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->salt = sha1($this->createdAt->format('U').uniqid('', true));
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail(string $email): void
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function setPassword(string $password = null): void
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSalt(): ?string
+    {
+        return $this->salt;
+    }
+
+    /**
+     * @param string $salt
+     */
+    public function setSalt(string $salt): void
+    {
+        $this->salt = $salt;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPlainPassword(): ?string
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * @param string $plainPassword
+     */
+    public function setPlainPassword(string $plainPassword): void
+    {
+        $this->plainPassword = $plainPassword;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getRegisteredOn(): ?\DateTime
+    {
+        return $this->registeredOn;
+    }
+
+    /**
+     * @param \DateTime $registeredOn
+     */
+    public function setRegisteredOn(\DateTime $registeredOn): void
+    {
+        $this->registeredOn = $registeredOn;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getLastLogin(): ?\DateTime
+    {
+        return $this->lastLogin;
+    }
+
+    /**
+     * @param \DateTime $lastLogin
+     */
+    public function setLastLogin(\DateTime $lastLogin): void
+    {
+        $this->lastLogin = $lastLogin;
+    }
+
+    /**
+     * @return string
+     */
+    public function getResetToken(): ?string
+    {
+        return $this->resetToken;
+    }
+
+    /**
+     * @param string $resetToken
+     */
+    public function setResetToken(string $resetToken): void
+    {
+        $this->resetToken = $resetToken;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRoles(): ?array
+    {
+        return $this->roles;
+    }
+
+    /**
+     * @param array $roles
+     */
+    public function setRoles(array $roles): void
+    {
+        $this->roles = $roles;
+    }
+
+    /**
+     * @param string $role
+     */
+    public function addRole(string $role): void
+    {
+        $this->roles[] = $role;
+    }
+
+    public function hasRole(string $role): bool
+    {
+        return in_array($role, $this->roles, false);
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->name ?: $this->email;
+    }
+
+    public function getUsername(): ?string
+    {
+        return $this->email;
+    }
+}

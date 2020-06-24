@@ -1,0 +1,10 @@
+{% extends 'Login/login.html.twig' %}
+{% block login_form %}
+    <h4 class="text-white">Reset Password</h4>
+    <div class="form-group m-t-20">
+        <p>Thanks!  Your password will be reset.</p>
+        <p>A password reset link will be emailed to you.</p>
+        <p>You will be asked to immediately enter a new password.</p>
+        <p><a href="{{ path('login') }}"><i class="fa fa-chevron-left"></i> Return to login page.</a></p>
+    </div>
+{% endblock %}
