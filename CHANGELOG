@@ -3,5 +3,6 @@ VERSION 1  INITIAL GITHUB/PACKAGIST RELEASE
 ===========================================
 
    Version 1.0 - Initial github/packagist release
+      30/06/2020 15:56  1.0.2  Query change
       30/06/2020 15:03  1.0.1  Fix repo query
       24/06/2020 11:49  1.0.0  initial release
