@@ -71,6 +71,6 @@ class UserRepository extends AbstractAdminManagedRepository
      */
     public function getListQuery($order_by = null, $order=false): Query
     {
-        return parent::getListQuery('e.name', 'asc');
+        return parent::getListQuery('name', 'asc');
     }
 }
