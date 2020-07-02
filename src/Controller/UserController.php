@@ -54,7 +54,7 @@ class UserController extends AbstractController
             {
                 try
                 {
-                    $this->user_service->updateUserPassword($this->getUser()->getId(),
+                    $this->user_service->updateUserPassword($this->getUser()->getUsername(),
                                                             $form->get('password')->getData());
                     $this->flash->addSuccess(null, null,
                                              "Password updated! You can now log in with your new password.");
@@ -71,7 +71,7 @@ class UserController extends AbstractController
             }
         }
 
-        return $this->render('User/change_password.html.twig', ['form' => $form->createView()]);
+        return $this->render('@NSSimpleUser/User/change_password.html.twig', ['form' => $form->createView()]);
     }
 
     public function resetPasswordAction(Request $request, $token)
