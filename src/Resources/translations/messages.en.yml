@@ -31,7 +31,7 @@ simpleuser:
     reset_password:
         title: Reset Password
         subtitle: Enter a new password now.
-            button: Change My Password
+        button: Change My Password
     form:
         name: Name
         email: Email
