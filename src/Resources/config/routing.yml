@@ -21,7 +21,7 @@ change_password:
     controller: NS\SimpleUserBundle\Controller\UserController::changePasswordAction
 
 reset_password:
-    path: /reset-password
+    path: /reset-password/{token}
     controller: NS\SimpleUserBundle\Controller\UserController::resetPasswordAction
 
 admin_user_index:
