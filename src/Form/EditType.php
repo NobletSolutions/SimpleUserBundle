@@ -27,12 +27,12 @@ class EditType extends AbstractType
     {
         parent::buildForm($builder, $options);
 
-        $builder->add('name')
-            ->add('email', EmailType::class);
+        $builder->add('name', null, ['label'=>'simpleuser.form.name'])
+            ->add('email', EmailType::class, ['label'=>'simpleuser.form.email']);
 
         if($this->authorization_checker->isGranted('ROLE_SUPER_ADMIN'))
         {
-            $builder->add('roles', RoleType::class);
+            $builder->add('roles', RoleType::class, ['label'=>'simpleuser.form.roles']);
         }
 
     }

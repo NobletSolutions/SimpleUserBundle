@@ -13,8 +13,8 @@ class LoginFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('_username', TextType::class, ['vertical' => true, 'required'=>true, 'label'=>'Email address']);
-        $builder->add('_password', PasswordType::class, ['vertical' => true, 'required'=>true]);
+        $builder->add('_username', TextType::class, ['vertical' => true, 'required'=>true, 'label'=>'simpleuser.form.username']);
+        $builder->add('_password', PasswordType::class, ['vertical' => true, 'required'=>true, 'label'=>'simpleuser.form.password']);
     }
 
     public function getBlockPrefix(): ?string

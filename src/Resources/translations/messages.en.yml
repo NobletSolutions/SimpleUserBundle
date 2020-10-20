@@ -1,0 +1,42 @@
+simpleuser:
+    welcome:
+        confirm: 'This will send the user a welcome email with a link to set their password.  Continue?'
+        send: Send Welcome Email
+    label:
+        name: Name
+        email: Email
+        email_address: Email Address
+    email:
+        reset:
+            body: '<h3>Hello, %name%</h3>
+                <h4>Your account has been created.</h4>
+                <p>To choose or reset your password, please follow the instructions at this link:</p>'
+    login:
+        title: Log In
+        button:
+            sign_in: Sign In
+            forgot: Forgot Password
+        forgot:
+            title: Reset Password
+            button: Reset my password
+            message: A password reset link will be emailed to you.
+            success_body: '<p>Thanks!  Your password will be reset.</p>
+                                  <p>A password reset link will be emailed to you.</p>
+                                  <p>You will be asked to immediately enter a new password.</p>'
+            return_link: Return to login page.
+    change_password:
+        title: Reset Password
+        subtitle: Enter a new password now.
+        button: Change My Password
+    reset_password:
+        title: Reset Password
+        subtitle: Enter a new password now.
+            button: Change My Password
+    form:
+        name: Name
+        email: Email
+        roles: Roles
+        username: Email Address
+        password: Password
+        new_password: New Password
+        confirm_new_password: Confirm New Password

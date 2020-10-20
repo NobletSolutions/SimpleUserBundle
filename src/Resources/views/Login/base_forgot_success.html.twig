@@ -1,10 +1,8 @@
 {% extends 'Login/login.html.twig' %}
 {% block login_form %}
-    <h4 class="text-white">Reset Password</h4>
+    <h4 class="text-white">{{ 'simpleuser.login.forgot.title'|trans }}</h4>
     <div class="form-group m-t-20">
-        <p>Thanks!  Your password will be reset.</p>
-        <p>A password reset link will be emailed to you.</p>
-        <p>You will be asked to immediately enter a new password.</p>
-        <p><a href="{{ path('login') }}"><i class="fa fa-chevron-left"></i> Return to login page.</a></p>
+        {{'simpleuser.login.forgot.success_body'|trans}}
+        <p><a href="{{ path('login') }}"><i class="fa fa-chevron-left"></i> {{'simpleuser.login.forgot.return_link'|trans}}</a></p>
     </div>
 {% endblock %}

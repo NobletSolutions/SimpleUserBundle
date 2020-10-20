@@ -4,8 +4,8 @@
 
 {% block list_column_headers %}
     <th></th>
-    <th>Name</th>
-    <th>Email</th>
+    <th>{{ 'simpleuser.label.name'|trans }}</th>
+    <th>{{ 'simpleuser.label.email'|trans }}</th>
 {% endblock %}
 
 {% block list_row %}
@@ -34,7 +34,7 @@
 
 {% block extra_actions %}
     {% if is_granted('ROLE_SUPER_ADMIN') or item.id == app.user.id %}
-        <a class="btn btn-sm btn-success ns-confirm" data-confirm-message="This will send the user a welcome email with a link to set their password.  Continue?" data-confirm-type="success"
-           href="{{ path('admin_password_reset', {'id':item.id}) }}"><i class="fa fa-door-open"></i> Send Welcome Email</a>
+        <a class="btn btn-sm btn-success ns-confirm" data-confirm-message="{{ 'simpleuser.welcome.confirm'|trans }}" data-confirm-type="success"
+           href="{{ path('admin_password_reset', {'id':item.id}) }}"><i class="fa fa-door-open"></i> {{ 'simpleuser.welcome.send'|trans }}</a>
     {% endif %}
 {% endblock %}

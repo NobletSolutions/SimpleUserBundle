@@ -2,8 +2,6 @@
 {% block subject %}{{ subject }}{% endblock %}
 
 {% block body %}
-    <h3>Hello, {{ user.name }}</h3>
-    <h4>Your account has been created.</h4>
-    <p>To choose or reset your password, please follow the instructions at this link:</p>
+    {{ 'simpleuser.email.reset.body'|replace({'%name%':user.name})})|raw }}
     <p><a href="{{ url('reset_password', {'token':token}) }}">{{ url('reset_password', {'token':token}) }}</a></p>
 {% endblock %}
