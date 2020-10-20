@@ -3,6 +3,7 @@ VERSION 1  INITIAL GITHUB/PACKAGIST RELEASE
 ===========================================
 
    Version 1.0 - Initial github/packagist release
+      20/10/2020 11:29  1.0.7  bugfix
       20/10/2020 11:14  1.0.6  bugfix
       20/10/2020 10:49  1.0.5  yaml fix
       20/10/2020 10:35  1.0.4  Added i18n support
