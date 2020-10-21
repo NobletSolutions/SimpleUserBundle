@@ -2,6 +2,9 @@
 VERSION 1  INITIAL GITHUB/PACKAGIST RELEASE
 ===========================================
 
+   Version 1.1 - Added optional first and last name fields
+      21/10/2020 11:47  1.1.0  initial release
+
    Version 1.0 - Initial github/packagist release
       20/10/2020 11:57  1.0.9  Fix route issue
       20/10/2020 11:34  1.0.8  i18n fix
