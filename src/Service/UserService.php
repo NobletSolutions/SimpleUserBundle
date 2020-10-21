@@ -119,7 +119,7 @@ class UserService extends AdminService
      * @param string $password
      * @param array  $roles
      */
-    public function createUser(string $username, string $password, array $roles): void
+    public function createUser(string $username, string $password, array $roles): User
     {
         $user = new User();
         $user->setEmail($username);
@@ -128,7 +128,7 @@ class UserService extends AdminService
         $user->setPassword($encoder->encodePassword($password, $user->getSalt()));
         $user->setRoles($roles);
 
-        $this->_create($user);
+        return $this->_create($user);
     }
 
     public function getClass(): string
