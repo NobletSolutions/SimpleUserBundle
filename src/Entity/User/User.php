@@ -22,6 +22,18 @@ class User extends AdminSoftDeletableEntity
     protected $name;
 
     /**
+     * @var string|null
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $first_name;
+
+    /**
+     * @var string|null
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $last_name;
+
+    /**
      * @var string
      * @ORM\Column(type="string")
      */
@@ -79,6 +91,11 @@ class User extends AdminSoftDeletableEntity
      */
     public function getName(): ?string
     {
+        if($this->first_name && $this->last_name)
+        {
+            return $this->first_name . ' ' . $this->last_name;
+        }
+
         return $this->name;
     }
 
@@ -243,4 +260,38 @@ class User extends AdminSoftDeletableEntity
     {
         return $this->email;
     }
+
+    /**
+     * @return string
+     */
+    public function getFirstName(): ?string
+    {
+        return $this->first_name;
+    }
+
+    /**
+     * @param string $first_name
+     */
+    public function setFirstName($first_name)
+    {
+        $this->first_name = $first_name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastName(): ?string
+    {
+        return $this->last_name;
+    }
+
+    /**
+     * @param string $last_name
+     */
+    public function setLastName($last_name)
+    {
+        $this->last_name = $last_name;
+    }
+
+
 }
