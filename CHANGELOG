@@ -2,6 +2,9 @@
 VERSION 1  INITIAL GITHUB/PACKAGIST RELEASE
 ===========================================
 
+   Version 1.2 - Service return user
+      21/10/2020 14:37  1.2.0  initial release
+
    Version 1.1 - Added optional first and last name fields
       21/10/2020 11:47  1.1.0  initial release
 
