@@ -5,6 +5,9 @@ namespace NS\SimpleUserBundle\Entity\User;
 
 use NS\AdminBundle\Entity\AdminSoftDeletableEntity;
 use \Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class User
@@ -12,6 +15,7 @@ use \Doctrine\ORM\Mapping as ORM;
  * Class User
  * @ORM\Entity(repositoryClass="NS\SimpleUserBundle\Repository\UserRepository")
  * @ORM\Table(name="ns_user", uniqueConstraints={@ORM\UniqueConstraint(name="user_idx", columns={"email"})})
+ * @UniqueEntity("email")
  */
 class User extends AdminSoftDeletableEntity
 {
@@ -35,7 +39,8 @@ class User extends AdminSoftDeletableEntity
 
     /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", unique=true)
+     * @Assert\Email
      */
     protected $email;
 
