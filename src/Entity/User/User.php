@@ -85,6 +85,12 @@ class User extends AdminSoftDeletableEntity
      */
     protected $roles;
 
+    /**
+     * @var bool
+     * @ORM\Column(type="boolean", nullable=true
+     */
+    protected $approved;
+
     public function __construct()
     {
         parent::__construct();
@@ -229,7 +235,14 @@ class User extends AdminSoftDeletableEntity
      */
     public function getRoles(): ?array
     {
-        return $this->roles;
+        $roles = $this->roles;
+
+        if($this->isApproved())
+        {
+            $roles[] = 'ROLE_APPROVED';
+        }
+
+        return $roles;
     }
 
     /**
@@ -250,7 +263,7 @@ class User extends AdminSoftDeletableEntity
 
     public function hasRole(string $role): bool
     {
-        return in_array($role, $this->roles, false);
+        return in_array($role, $this->getRoles(), false);
     }
 
     /**
@@ -296,6 +309,22 @@ class User extends AdminSoftDeletableEntity
     public function setLastName($last_name)
     {
         $this->last_name = $last_name;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isApproved()
+    {
+        return $this->approved;
+    }
+
+    /**
+     * @param bool $approved
+     */
+    public function setApproved($approved)
+    {
+        $this->approved = $approved;
     }
 
 
