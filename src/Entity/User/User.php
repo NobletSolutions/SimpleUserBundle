@@ -87,7 +87,7 @@ class User extends AdminSoftDeletableEntity
 
     /**
      * @var bool
-     * @ORM\Column(type="boolean", nullable=true
+     * @ORM\Column(type="boolean", nullable=true)
      */
     protected $approved;
 
