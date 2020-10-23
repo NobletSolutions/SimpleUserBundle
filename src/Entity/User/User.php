@@ -91,6 +91,11 @@ class User extends AdminSoftDeletableEntity
      */
     protected $approved;
 
+    /**
+     * @var object
+     */
+    protected $profile;
+
     public function __construct()
     {
         parent::__construct();
@@ -327,5 +332,19 @@ class User extends AdminSoftDeletableEntity
         $this->approved = $approved;
     }
 
+    /**
+     * @return object
+     */
+    public function getProfile(): ?object
+    {
+        return $this->profile;
+    }
 
+    /**
+     * @param object $profile
+     */
+    public function setProfile(?object $profile): void
+    {
+        $this->profile = $profile;
+    }
 }
