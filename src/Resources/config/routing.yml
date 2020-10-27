@@ -10,7 +10,7 @@ logout:
 
 forgot_password:
     path:     /forgot_password
-    controller: NS\SimpleUserBundle\Controller\LoginController::forgotAction
+    controller: NS\SimpleUserBundle\Controller\LoginController::forgotPasswordAction
 
 forgot_password_success:
     path:     /forgot_success

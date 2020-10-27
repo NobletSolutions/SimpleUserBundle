@@ -1,6 +1,6 @@
 {% extends 'Login/login.html.twig' %}
 {% block login_form %}
-    <form action="{% block check_url %}{{ url('forgotPassword') }}{% endblock %}" method="POST" class="margin-bottom-0">
+    <form action="{% block check_url %}{{ url('forgot_password') }}{% endblock %}" method="POST" class="margin-bottom-0">
         <h4 class="text-white">{{ 'simpleuser.login.forgot.title'|trans }}</h4>
         <div class="form-group m-b-20">
             <input type="text" class="form-control input-lg" placeholder="{{ 'simpleuser.label.email_address'|trans }}" name="_username" />

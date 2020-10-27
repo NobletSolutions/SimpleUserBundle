@@ -70,10 +70,10 @@ class LoginController extends AbstractController
             catch(UserNotFoundException $e)
             {
                 $this->flash->addError(null, '', 'Sorry, no user was found matching that email address.');
-                return $this->redirectToRoute('forgotPassword');
+                return $this->redirectToRoute('forgot_password');
             }
 
-            return $this->redirectToRoute('forgot_success');
+            return $this->redirectToRoute('forgot_password_success');
         }
 
         return $this->render('@NSSimpleUser/Login/forgot.html.twig');

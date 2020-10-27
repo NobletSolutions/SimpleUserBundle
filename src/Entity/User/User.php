@@ -21,7 +21,7 @@ class User extends AdminSoftDeletableEntity
 {
     /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $name;
 
@@ -118,7 +118,7 @@ class User extends AdminSoftDeletableEntity
     /**
      * @param string $name
      */
-    public function setName(string $name): void
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
