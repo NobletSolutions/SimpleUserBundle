@@ -2,7 +2,7 @@
 {% block login_form %}
     <h4 class="text-white">{{ 'simpleuser.login.forgot.title'|trans }}</h4>
     <div class="form-group m-t-20">
-        {{'simpleuser.login.forgot.success_body'|trans}}
+        {{'simpleuser.login.forgot.success_body'|trans|raw}}
         <p><a href="{{ path('login') }}"><i class="fa fa-chevron-left"></i> {{'simpleuser.login.forgot.return_link'|trans}}</a></p>
     </div>
 {% endblock %}
