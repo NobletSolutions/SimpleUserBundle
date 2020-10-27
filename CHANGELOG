@@ -3,6 +3,7 @@ VERSION 1  INITIAL GITHUB/PACKAGIST RELEASE
 ===========================================
 
    Version 1.2 - Service return user
+      27/10/2020 12:00  1.2.6  Fixed password reset routing
       23/10/2020 11:46  1.2.5  Add remove role
       23/10/2020 10:22  1.2.4  Add user profile placeholder
       22/10/2020 11:53  1.2.3  Fixed annotation
