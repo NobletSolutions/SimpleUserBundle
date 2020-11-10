@@ -273,11 +273,12 @@ class User extends AdminSoftDeletableEntity
 
     public function removeRole(string $role): void
     {
-        $key = array_search($role, $this->roles, false);
+        if($this->roles) {
+            $key = array_search($role, $this->roles, false);
 
-        if($key !== false)
-        {
-            unset($this->roles[$key]);
+            if ($key !== false) {
+                unset($this->roles[$key]);
+            }
         }
     }
 

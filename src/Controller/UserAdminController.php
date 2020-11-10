@@ -75,7 +75,7 @@ class UserAdminController extends AbstractAdminController
          */
         $user = $this->getRecord($id);
 
-        if(!$this->authorization_checker->isGranted('ROLE_SUPER_ADMIN') || $user->getId() === $this->getUser()->getId())
+        if(!$this->authorization_checker->isGranted('ROLE_SUPER_ADMIN'))
         {
             throw new AdminActionFailedException('You are not authorized to edit users.');
         }

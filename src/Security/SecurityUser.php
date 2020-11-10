@@ -90,7 +90,7 @@ class SecurityUser implements UserInterface, EquatableInterface
     /**
      * @return string
      */
-    public function getPassword(): string
+    public function getPassword(): ?string
     {
         return $this->password;
     }
