@@ -3,9 +3,6 @@ services:
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
-        bind:
-            $ns_simple_user_email_sender: 'noreply@localhost'
-            $ns_simple_user_password_reset_subject: 'Your password has been reset'
 
     NS\SimpleUserBundle\:
         resource: '../../*'
@@ -21,3 +18,8 @@ services:
     NS\SimpleUserBundle\Form\Type\RoleType:
         arguments:
             $system_roles: "%ns_simple_user.roles%"
+
+    NS\SimpleUserBundle\Service\Mailer:
+        arguments:
+            $ns_simple_user_email_sender: 'noreply@localhost'
+            $ns_simple_user_password_reset_subject: 'Your password has been reset'
