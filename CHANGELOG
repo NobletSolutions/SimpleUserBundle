@@ -3,6 +3,7 @@ VERSION 1  INITIAL GITHUB/PACKAGIST RELEASE
 ===========================================
 
    Version 1.2 - Service return user
+      27/11/2020 11:53  1.2.10  Config changes
       26/11/2020 16:31  1.2.9  Translations
       10/11/2020 09:41  1.2.8  Fixed password reset
       27/10/2020 12:13  1.2.7  fixed template issue
