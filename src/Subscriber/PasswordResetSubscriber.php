@@ -13,10 +13,12 @@ class PasswordResetSubscriber implements EventSubscriberInterface
      * @var Mailer
      */
     protected $mailer;
+    protected $env;
 
-    public function __construct(Mailer $mailer)
+    public function __construct(Mailer $mailer, string $env)
     {
         $this->mailer = $mailer;
+        $this->env    = $env;
     }
 
     /**
@@ -24,9 +26,16 @@ class PasswordResetSubscriber implements EventSubscriberInterface
      */
     public function onUserPasswordReset(UserEvent $event): void
     {
-        $user = $event->getUser();
+        try {
+            $user = $event->getUser();
 
-        $this->mailer->sendPasswordReset($user, $user->getResetToken());
+            $this->mailer->sendPasswordReset($user, $user->getResetToken());
+        } catch (\Exception $exception) {
+            //we don't want email-related problems stopping anything
+            if ($this->env === 'dev') {
+                throw $exception;
+            }
+        }
     }
 
     /**
@@ -35,7 +44,7 @@ class PasswordResetSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            UserEvent::PASSWORD_RESET => 'onUserPasswordReset'
+            UserEvent::PASSWORD_RESET => 'onUserPasswordReset',
         ];
     }
 }
