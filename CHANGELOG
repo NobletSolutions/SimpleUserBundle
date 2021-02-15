@@ -3,6 +3,7 @@ VERSION 1  INITIAL GITHUB/PACKAGIST RELEASE
 ===========================================
 
    Version 1.2 - Service return user
+      15/02/2021 14:23  1.2.12  Better roles handling
       30/11/2020 15:01  1.2.11  Error handling improvements
       27/11/2020 11:53  1.2.10  Config changes
       26/11/2020 16:31  1.2.9  Translations
