@@ -251,10 +251,15 @@ class User extends AdminSoftDeletableEntity
     }
 
     /**
-     * @param array $roles
+     * @param mixed $roles
      */
-    public function setRoles(array $roles): void
+    public function setRoles($roles): void
     {
+        if(!is_iterable($roles))
+        {
+            $roles = [$roles];
+        }
+
         $this->roles = $roles;
     }
 
